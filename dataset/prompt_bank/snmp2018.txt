@@ -1,0 +1,1 @@
+snmp2018 is a collection of hourly data recorded by the Deparment of Energy on their internal netowrk. It spans an entire year, and each column describes the network traffic between two nodes in the format NODE1_NODE2_out or NODE1_NODE2_in where out and in indicate the direction of the data.
