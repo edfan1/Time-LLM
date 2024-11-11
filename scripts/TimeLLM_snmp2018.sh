@@ -4,7 +4,7 @@ learning_rate=0.01
 llama_layers=32
 
 # master_port=00097
-num_process=8
+num_process=3
 batch_size=24
 d_model=32
 d_ff=128
@@ -13,7 +13,7 @@ comment='TimeLLM-snmp2018'
 
 #--multi_gpu  --main_process_port $master_port
 
-accelerate launch --mixed_precision bf16 --num_processes $num_process run_main.py \
+accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_process --num_machines 3 run_main.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/ \
