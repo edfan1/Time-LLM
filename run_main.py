@@ -14,6 +14,13 @@ import random
 import numpy as np
 import os
 
+def force_cudnn_initialization():
+    s = 32
+    dev = torch.device('cuda')
+    torch.nn.functional.conv2d(torch.zeros(s, s, s, s, device=dev), torch.zeros(s, s, s, s, device=dev))
+
+force_cudnn_initialization()
+
 os.environ['CURL_CA_BUNDLE'] = ''
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
 # os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
