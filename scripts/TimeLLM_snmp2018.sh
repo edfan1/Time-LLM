@@ -23,6 +23,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --model $model_name \
   --data snmp2018 \
   --features M \
+  --target 'SACR_SUNN_in' \
   --seq_len 512 \
   --label_len 48 \
   --pred_len 96 \
