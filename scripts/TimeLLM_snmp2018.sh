@@ -13,7 +13,8 @@ comment='TimeLLM-snmp2018'
 
 #--multi_gpu  --main_process_port $master_port
 
-accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_process --num_machines 3 --machine_rank 0 run_main.py \
+# accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_process --num_machines 3 --machine_rank 0 run_main.py \
+accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_process run_main.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/ \
