@@ -424,7 +424,8 @@ class Dataset_wanT(Dataset):
         self.scaler = StandardScaler()
         df_raw = pd.read_csv(os.path.join(self.root_path,
                                           self.data_path))
-        df_raw.rename({'Time' : 'date'}, inplace=True)
+        # Had to manually rename Time column to date
+        # df_raw.rename({'Time' : 'date'}, inplace=True)
         '''
         df_raw.columns: ['date', ...(other features), target feature]
         '''
