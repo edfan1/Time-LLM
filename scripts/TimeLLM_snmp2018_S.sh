@@ -5,7 +5,7 @@ llama_layers=32
 
 # master_port=00097
 num_process=3
-batch_size=12
+batch_size=18
 d_model=32
 d_ff=128
 
@@ -22,7 +22,7 @@ accelerate launch --multi_gpu --mixed_precision bf16 --num_processes $num_proces
   --model_id snmp2018_512_96 \
   --model $model_name \
   --data snmp2018 \
-  --features M \
+  --features S \
   --target 'SACR_SUNN_in' \
   --seq_len 512 \
   --label_len 48 \
