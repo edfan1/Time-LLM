@@ -424,7 +424,7 @@ class Dataset_wanT(Dataset):
         self.scaler = StandardScaler()
         df_raw = pd.read_csv(os.path.join(self.root_path,
                                           self.data_path))
-        # Had to manually rename Time column to date
+        # Had to manually rename Time column with date
         # df_raw.rename({'Time' : 'date'}, inplace=True)
         '''
         df_raw.columns: ['date', ...(other features), target feature]
@@ -445,9 +445,12 @@ class Dataset_wanT(Dataset):
             border2 = (border2 - self.seq_len) * self.percent // 100 + self.seq_len
 
         if self.features == 'M' or self.features == 'MS':
-            cols_data = df_raw.columns[1:]
+            # Number of columns used in training and predicting.
+            # Limited to 10 right now for testing purposes (runtime) but can be increased later.
+            cols_data = df_raw.columns[1:10]
             df_data = df_raw[cols_data]
         elif self.features == 'S':
+            # Note how single var features only selects the target column
             df_data = df_raw[[self.target]]
 
         if self.scale:
