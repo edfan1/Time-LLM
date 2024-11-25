@@ -1,0 +1,3 @@
+sbatch  --mail-type=begin --mail-type=end --mail-type=fail --mail-user=edfan@email.unc.edu -N 1 -n 1 -p a100-gpu --mem=128g -t 04-00:00:00 --qos gpu_access --gres=gpu:nvidia_a100-pcie-40gb:3 --wrap="bash ./scripts/TimeLLM_snmp2018_S.sh"
+
+sbatch  --mail-type=begin --mail-type=end --mail-type=fail --mail-user=edfan@email.unc.edu -N 1 -n 1 -p a100-gpu --mem=128g -t 04-00:00:00 --qos gpu_access --gres=gpu:nvidia_a100-pcie-40gb:3 --wrap="bash ./scripts/TimeLLM_ETTh1.sh"
